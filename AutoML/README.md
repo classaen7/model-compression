@@ -39,7 +39,7 @@ Gaussian Process Regression은 불확실성을 모델링 할 수 있다.
 **Acquisition Function**는 Exploration과 Exploitation의 trade off를 통해 다음의 λ를 결정한다.
 
 ### Tree-structured Parzen Estimator
-Bayesian Optimization은 N^3의 시간복잡도를 갖으며 Conditional 관계가 섞여 있을 때 사용하기 어려움
+Bayesian Optimization은 $N^3$의 시간복잡도를 갖으며 Conditional 관계가 섞여 있을 때 사용하기 어려움
 
 - TPE를 통한 다음 step λ 계산 방법
 1. 현재까지의 observation을 good(25%), bad(75%)로 구분 (특정 quantile(inverse CDF)로 구분)
