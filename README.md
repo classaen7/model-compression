@@ -4,7 +4,7 @@
 # Contents
 - Efficient Architecture Design
   - [AutoML](https://github.com/classaen7/model-compression/tree/main/AutoML)
-- Matrix/Tensor Decomposition
+- [Matrix/Tensor Decomposition](https://github.com/classaen7/model-compression/tree/main/Decomposition)
 - Network Quantization
 - Network Compiling
 
