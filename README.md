@@ -1,21 +1,15 @@
 # model-compression
-다양한 모델 경량화 기법 정리
+다양한 모델 경량화 기법을 공부하며 이론과 코드를 정리해 놓는 repo이다.
 
-### 경량화 필요성
-1. 하드웨어 제약
-2. 클라우드의 Latency & Throughput
-3. 딥러닝 모델 연산량의 증가
-
-### 경량화 분야
+# Contents
 - Efficient Architecture Design
-  - AutoML
+  - [AutoML](https://github.com/classaen7/model-compression/tree/main/AutoML)
 - Matrix/Tensor Decomposition
 - Network Quantization
 - Network Compiling
 
 - Network Pruning
 - Knowledge Distillation
-
 
 
 
