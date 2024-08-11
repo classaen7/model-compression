@@ -121,9 +121,9 @@ Channel wise한 연산이므로 1x1 Conv로도 표현 가능하다.
 이를 통해 column vector를 만들 수 있으며 BatchNorm과 결합하면 다음과 같은 최종 식이 유도 된다.
 
 <p align="center">
-$\hat{f} _{i,j} = W_{BN} *( W_{conv}*f_{i,j} + b_{conv}) + b_{BN}$
+$\hat{f} _{i,j} = W_{BN} *( W_{conv}*f_{i,j} + b_{conv}) + b_{BN}$ <br>
 $\hat{f}_{i,j} = W_{fused}*f_{i,j} + b_{fused}$ <br>
-$W_fused = W_{BN} * W_{conv}$ <br>
+$W_{fused} = W_{BN} * W_{conv}$ <br>
 $b_{fused} = W_{BN} * b_{conv} + b_{BN}$
 
 </p>
@@ -137,7 +137,7 @@ Quant for layer_1 -> layer_1 -> De-Quant -> Quant for layer_2 -> ...
 즉 각 layer마다 quantized params$(s,z)$가 필요하다. 
 이때 Convolution과 Activation이 fuse되면 scale을 바꾸기 위해 필요한 De-Quant - Quant 과정이 사라지게 된다.
 
-$Y'_{i,j} = ReLU(Y_{i,j}, 0, 0, 1)$을 전개하면 다음과 같다. ($Y$는 중간 output, $Y'$는 최종 output)
+$$ Y'_{i,j} = \text{ReLU}(Y_{i,j}, 0, 0, 1) $$을 전개하면 다음과 같다. ($Y$는 중간 output, $Y'$는 최종 output)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6e1a28d3-10d3-4b83-a9f7-14f78a3e5835" </img>
