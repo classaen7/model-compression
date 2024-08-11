@@ -4,7 +4,9 @@
 ## Fixed Point & Floating Point
 
 - **Fixed Point : 고정 소수점**<br>
-![title](https://private-user-images.githubusercontent.com/79098475/356880012-0def6b5e-b7e9-4eb3-b863-d66fa1ca17d9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjMzOTI3NjgsIm5iZiI6MTcyMzM5MjQ2OCwicGF0aCI6Ii83OTA5ODQ3NS8zNTY4ODAwMTItMGRlZjZiNWUtYjdlOS00ZWIzLWI4NjMtZDY2ZmExY2ExN2Q5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODExVDE2MDc0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWRhYzYwNzE1YjlmZDQ1ZGI1MWNjOWFkYzYxN2JiYmNkMDY1YzJkNWE4MDU3ZmY2MWE1OWIyMWRhNjgwN2M3ZTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.OxloFsJZLPm7rv0di_7Uq-E6-e-mS5LVBChBr8sQpQQ)   
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0def6b5e-b7e9-4eb3-b863-d66fa1ca17d9">
+</p>
 
 Fixed Point는 소수점 위치가 고정되어있다. 이는 숫자를 표현할 때 소수점이 항상 일정한 위치에 있다는 뜻이다. 
 
@@ -13,7 +15,9 @@ Fixed Point는 소수점 위치가 고정되어있다. 이는 숫자를 표현�
 따라서 담을 수 있는 수의 개수가 동일하다. 이는 등간격으로 수가 표현되어 항상 동일한 해상도를 갖음을 의미한다.
 
 - **Floating Point : 부동 소수점**<br>
-![title](https://private-user-images.githubusercontent.com/79098475/356880019-182b73d5-6363-45c2-adfc-42ca6d329e09.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjMzOTI3NjgsIm5iZiI6MTcyMzM5MjQ2OCwicGF0aCI6Ii83OTA5ODQ3NS8zNTY4ODAwMTktMTgyYjczZDUtNjM2My00NWMyLWFkZmMtNDJjYTZkMzI5ZTA5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODExVDE2MDc0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTA4ZDk0ODdhOWQwZGNiMTdhNTJmZjU4MzljZjliYWU1NzdmMjg5YmQxNWI0MDUzYmYxOGIyMWYxMGYxZDc4NTImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.oZYBxUm-GteyiqjnD3upZ8tneYz9Qd5toylRK9Lb9_E)   
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/182b73d5-6363-45c2-adfc-42ca6d329e09">
+</p>  
 
 IEEE에서 정의하는 대표적인 32-bit 실수표현 방식이다.
 
@@ -60,17 +64,91 @@ NN의 Layer 연산은 matrix 연산과 activation 연산의 연속으로 이루�
 
 ## Matrix Multiplication Quantization
 Convolution 연산을 의미하는 matrix multiplication 식에 위의 Quantization mapping을 적용하면 다음과 같은 식이 유도된다.
-![title](https://private-user-images.githubusercontent.com/79098475/356888926-4c9b86c2-3ac5-4edb-b5d8-c479f82cf342.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjMzOTEzMTYsIm5iZiI6MTcyMzM5MTAxNiwicGF0aCI6Ii83OTA5ODQ3NS8zNTY4ODg5MjYtNGM5Yjg2YzItM2FjNS00ZWRiLWI1ZDgtYzQ3OWY4MmNmMzQyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODExVDE1NDMzNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWUxZjA5NjkxOTIyYTE2YWZmOTgyNTRmM2I3MzA4NWRjNmUxYzQwMjU2NDBlYjc0NzJkNmZiZDQyYWU1NzllZDQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.OoE7dEwQjgAx7BkrQIzQnnJfJjre_71E8F1mFQjJ584)   
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4c9b86c2-3ac5-4edb-b5d8-c479f82cf342">
+</p>   
 
 이때 구하는 값인 $Y_{q,i,j}$로 식을 정리하면 다음과 같다.
 
-![title](https://private-user-images.githubusercontent.com/79098475/356889140-ce8ad934-3878-4f79-b94f-036ac29e2093.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjMzOTEzMTYsIm5iZiI6MTcyMzM5MTAxNiwicGF0aCI6Ii83OTA5ODQ3NS8zNTY4ODkxNDAtY2U4YWQ5MzQtMzg3OC00Zjc5LWI5NGYtMDM2YWMyOWUyMDkzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODExVDE1NDMzNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWIxMzg2MTJiYTM1OWNkZDQ0M2U0NGE5NTI3OTQ5ZDIwZDBlNWU0YTUyYTQ4YjY1ZTc3YjIxZTE0ODdlMDE5ZjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.rsQsu_RPP8ilzSI3j313YcF9-Qv7G97YOokyz0llMIs)   
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ce8ad934-3878-4f79-b94f-036ac29e2093">
+</p>
+  
 이때 단순 연산횟수는 양자화 이전의 matrix multiplication보다 많아지지만 Integer type의 연산이므로 전력 소모도 적고 대체로 빠르게 수행할 수 있다.
 
 ## Activation Quantization
 ReLU에 Quantization을 적용하는 유도식을 확인하겠다.
 
-![title](https://private-user-images.githubusercontent.com/79098475/356891121-56761bd5-84bb-4ac0-914a-0200fe70f234.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjMzOTMyMjUsIm5iZiI6MTcyMzM5MjkyNSwicGF0aCI6Ii83OTA5ODQ3NS8zNTY4OTExMjEtNTY3NjFiZDUtODRiYi00YWMwLTkxNGEtMDIwMGZlNzBmMjM0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODExVDE2MTUyNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg4OWQ5NDFmY2E5MjJhY2I2YzE3YzdlMGZiMDViOWMyZTRiMDMyMWE5MDRlZjgwNmE3YTQ3NGI4ODE2YWU0NTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.Ff8un4h6d2zVffJlh4tVgMFC__K5zfBz_yRx7xvXbno)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/56761bd5-84bb-4ac0-914a-0200fe70f234">
+</p>
 
-Quantization mapping과 유사하게 쉽게 유도할 수 있다.
+기본 Quantization mapping과 유사하게 쉽게 유도할 수 있다.
+
+# Layer Fusion
+**Inference시점에**, Conv layer 뒤에 추가되는 Activation layer와 batchnorm layer 등을 fuse하여 하나의 Conv layer로 표현할 수 있다. <br>
+이때 layer 갯수가 줄어들어 추론 속도가 향상되며 중간의 Quant, De-Qaunt 과정이 줄어들게 된다.
+
+## Convolution + BatchNorm Fusion
+BatchNorm은 다음과 같은 과정을 갖는다.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/44a4fb9e-997c-41f0-80e3-6e5c9c0834d7" >
+</p>
+Inference 시에 BatchNorm(Freezed BatchNorm)은 EMA와 같은 기법을 통해 저장해 놓은 Train Dataset의 $\mu$와 $\sigma$를 통해 `normalize`를 수행하고 이후 $\gamma$와 $\beta$를 통해 `re-normalize`를 수행한다.
+
+이 두번의 Affine mapping은 다음과 같이 하나의 Affine mapping으로 묶어서 표현할 수 있다.
+
+<p align="center">$y = \frac{\gamma}{\sqrt{Var[x]+\epsilon}}*x + (\beta - \frac{\gamma E[x]}{\sqrt{Var[x]+\epsilon}}) $</p>
+
+실제 논문에서는 `re-normalize`만을 $\gamma$와 $\beta$로 표현한다. 즉 입력 $x$에 대하여 하나의 Affine mapping만 수행하고, 이는 대각행렬, Feature map, bias의 Matrix 연산으로 표현할 수 있다.
+
+$\hat{F} _{C,i,j} = \gamma _C F_{C,i,j} + \beta _C$
+
+이때 $F_C$는 이전 Conv를 통과한 output channel = c의 Feature map이다. 
+Channel wise한 연산이므로 1x1 Conv로도 표현 가능하다.
+
+- **Vector unwrapping**
+
+실제 Convolution 연산은 unrolling을 통한 matrix multiplication으로 수행된다.
+
+이를 Convolution과 BatchNorm을 조합하기 위해서 사용하면 다음과 같다.
+
+먼저 입력으로 들어오는 Feature map을 Convolution kernel size에 해당하는 크기의 vector로 unwrapping한다. 
+
+이는 커널을 sparse matrix로 표현하고, 입력을 vector로 펼치는 것으로 계산할 수 있다.
+
+이를 통해 column vector를 만들 수 있으며 BatchNorm과 결합하면 다음과 같은 최종 식이 유도 된다.
+
+<p align="center">
+$\hat{f} _{i,j} = W_{BN} *( W_{conv}*f_{i,j} + b_{conv}) + b_{BN}$
+$\hat{f}_{i,j} = W_{fused}*f_{i,j} + b_{fused}$ <br>
+$W_fused = W_{BN} * W_{conv}$ <br>
+$b_{fused} = W_{BN} * b_{conv} + b_{BN}$
+
+</p>
+
+## Fused Quantization : Conv-Activation Fusion
+위에서 Convolution과 BatchNorm을 하나의 Convolution으로 Fusion하는 것을 확인하였다. 
+
+
+각 layer마다 range가 다르기 때문에 하나의 layer를 지날때마다 다음과 같은 구조가 반복된다.
+Quant for layer_1 -> layer_1 -> De-Quant -> Quant for layer_2 -> ...
+즉 각 layer마다 quantized params$(s,z)$가 필요하다. 
+이때 Convolution과 Activation이 fuse되면 scale을 바꾸기 위해 필요한 De-Quant - Quant 과정이 사라지게 된다.
+
+$Y'_{i,j} = ReLU(Y_{i,j}, 0, 0, 1)$을 전개하면 다음과 같다. ($Y$는 중간 output, $Y'$는 최종 output)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6e1a28d3-10d3-4b83-a9f7-14f78a3e5835" </img>
+</p>
+
+Fuse된 결과의 quantization에 중간 Conv layer($Y$)의 quantization 파라미터인 $s_Y, z_Y$가 없음을 확인할 수 있다. 이는 중간의 Quant, De-Quant 과정이 생략된 것을 의미한다.
+
+
+
+## 🔗 Reference
+[부스트코스 : 모델 경량화](https://www.boostcourse.org/ai302/joinLectures/374476)   
+[Floating Point & Fixed Point image](https://www.researchgate.net/figure/Representation-of-the-floating-point-and-fixed-point-formats_fig1_225139564)   
+
 
