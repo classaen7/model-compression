@@ -43,7 +43,7 @@ $x \in [\alpha, \beta]$인 floating point value를 n-bit integer인 $x_q \in [\a
 <p align="center"> $x_q = round(\frac{1}{s} x + z)$</p>
 
 - **De-Quantization**<br>
-<p align="center">$x = s(x_q - z)$</p>
+<p align="center">$x = s(x_q - z)$ </p>
 
 이때 $s = \frac{\beta-\alpha}{\beta_q-\alpha_q}$, $z = round(\frac{\beta\alpha_q-\alpha\beta_q}{\beta - \alpha})$이며 각각 scale과 shift를 담당한다. (Affine 변환으로 볼 수 있다.)
 이때 zero-pad나 ReLU처럼 DL에서는 0.0이 양자화 이후에도 정확히 0을 유지해하므로 다음과 같은 식이 도출되며 $d$는 정수여야하는 constraint가 추가된다.
@@ -95,7 +95,8 @@ BatchNorm은 다음과 같은 과정을 갖는다.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/44a4fb9e-997c-41f0-80e3-6e5c9c0834d7" >
 </p>
-Inference 시에 BatchNorm(Freezed BatchNorm)은 EMA와 같은 기법을 통해 저장해 놓은 Train Dataset의 $\mu$와 $\sigma$를 통해 `normalize`를 수행하고 이후 $\gamma$와 $\beta$를 통해 `re-normalize`를 수행한다.
+
+<p>Inference 시에 BatchNorm(Freezed BatchNorm)은 EMA와 같은 기법을 통해 저장해 놓은 Train Dataset의 $\mu$와 $\sigma$를 통해 `normalize`를 수행하고 이후 $\gamma$와 $\beta$를 통해 `re-normalize`를 수행한다.</p>
 
 이 두번의 Affine mapping은 다음과 같이 하나의 Affine mapping으로 묶어서 표현할 수 있다.
 
@@ -103,7 +104,10 @@ Inference 시에 BatchNorm(Freezed BatchNorm)은 EMA와 같은 기법을 통해 
 
 실제 논문에서는 `re-normalize`만을 $\gamma$와 $\beta$로 표현한다. 즉 입력 $x$에 대하여 하나의 Affine mapping만 수행하고, 이는 대각행렬, Feature map, bias의 Matrix 연산으로 표현할 수 있다.
 
-$\hat{F} _{C,i,j} = \gamma _C F_{C,i,j} + \beta _C$
+<p align="center">
+$\hat{F}_{C,i,j} = \gamma_C * F_{C,i,j} + \beta _C$
+</p>
+
 
 이때 $F_C$는 이전 Conv를 통과한 output channel = c의 Feature map이다. 
 Channel wise한 연산이므로 1x1 Conv로도 표현 가능하다.
@@ -128,16 +132,18 @@ $b_{fused} = W_{BN} * b_{conv} + b_{BN}$
 
 </p>
 
+
 ## Fused Quantization : Conv-Activation Fusion
 위에서 Convolution과 BatchNorm을 하나의 Convolution으로 Fusion하는 것을 확인하였다. 
 
+</p>
 
 각 layer마다 range가 다르기 때문에 하나의 layer를 지날때마다 다음과 같은 구조가 반복된다.
 Quant for layer_1 -> layer_1 -> De-Quant -> Quant for layer_2 -> ...
-즉 각 layer마다 quantized params$(s,z)$가 필요하다. 
+즉 각 layer마다 quantized params(s,z)가 필요하다. 
 이때 Convolution과 Activation이 fuse되면 scale을 바꾸기 위해 필요한 De-Quant - Quant 과정이 사라지게 된다.
 
-$$ Y'_{i,j} = \text{ReLU}(Y_{i,j}, 0, 0, 1) $$을 전개하면 다음과 같다. ($Y$는 중간 output, $Y'$는 최종 output)
+<p> $Y'_{i,j} = \text{ReLU}(Y_{i,j}, 0, 0, 1)$을 전개하면 다음과 같다. ($Y$는 중간 output, $Y'$는 최종 output)</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6e1a28d3-10d3-4b83-a9f7-14f78a3e5835" </img>
