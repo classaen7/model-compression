@@ -109,7 +109,7 @@ as network, trt.OnnxParser(network, trt_logger) as parser:
     # GPU 최대 메모리 할당량 설정
     config.max_workspace_size = 8 << 30 # 8GiB GPU memory. 
     config.set_flag(trt.BuilderFlag.GPU_FALLBACK) 
-    # FP16 변퐌 플래그 설정
+    # FP16 변환 플래그 설정
     config.set_flag(trt.BuilderFlag.FP16) 
 
     profile = builder.create_optimization_profile() 
