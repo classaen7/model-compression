@@ -7,10 +7,6 @@ Pruning은 중요도가 낮은 파라미터를 제거하는 것이다.
 - 적용 기준: Network 전체를 기준(global), Layer 마다 내부 기준(local)
 - 시점: 학습된 모델 / 초기화 시점
 
-<p align="center">
-  <img src="">
-</p>
-
 # Structured Pruning
 Structured Pruning은 파라미터를 그룹(channel, filter, layer) 단위로 제거하는 것이다.
 <p align="center">
