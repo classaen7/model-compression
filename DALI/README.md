@@ -15,9 +15,9 @@ from nvidia.dali import fn
 @nvidia.dali.pipeline_def
 def rn50_pipeline():
     encoded, label = fn.readers.file(file_root=image_dir)
-    decoded           = fn.decoders.image(encoded, ...)
-    resized              = fn.resize(decoded, size=[224, 224])
-    normalized       = fn.crop_mirror_normalize(resized, mean=mean, std=std)
+    decoded = fn.decoders.image(encoded, ...)
+    resized = fn.resize(decoded, size=[224, 224])
+    normalized = fn.crop_mirror_normalize(resized, mean=mean, std=std)
     return normalized, label
 
 pipe = rn50_pipeline(batch_size=128, num_threads=4, device_id=0)
@@ -27,7 +27,7 @@ image, labels = pipe.run()
 DALI는 pipeline을 생성한 후 객체를 `build()`하고 `run()`하면 일종의 iterator처럼 이미지를 생성하게 된다.
 
 # GPU offloading
-`decoded           = fn.decoders.image(encoded, device="mixed")`
+`decoded = fn.decoders.image(encoded, device="mixed")`
 decoded 과정에서 device를 "mixed"로 설정하면 **GPU offloading**이 된다.
 
 > **Offload**란 특정 작업이나 연산을 원래 수행하던 주체(예: CPU)에서 다른 장치나 시스템(예: GPU, 네트워크 장비)으로 넘겨서 처리하는 것을 의미한다.
