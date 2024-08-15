@@ -151,6 +151,44 @@ Quant for layer_1 -> layer_1 -> De-Quant -> Quant for layer_2 -> ...
 
 Fuse된 결과의 quantization에 중간 Conv layer($Y$)의 quantization 파라미터인 $s_Y, z_Y$가 없음을 확인할 수 있다. 이는 중간의 Quant, De-Quant 과정이 생략된 것을 의미한다.
 
+# NLP
+Quantization으로 인한 Accuracy drop을 방지하기 위해 NLP에서도 QAT(Quantization Nose를 덜 받는 형태로 학습)를 사용하는데, 이와 관련된 논문을 살펴보겠다.
+
+### Q-BERT: Hessian Based Ultra Low Precision Quantization of BERT
+
+해당 논문은 아래와 같은 방법을 제안한다.
+
+- **mixed-precision quantization**<br>
+
+민감도가 높은 layer는 큰 precision, 반대는 작은 precision을 부여
+
+- **Hessian spectrum**<br>
+
+Hessian spectrum은 Hessian의 eigen value를 본다는 것을 의미
+
+이때 논문에서는 NN layer의 eigen value가 클수록 quantization에 대해 민감하다고 설명한다. 
+
+> Hessian이란 다변량 함수의 2차 미분을 포함하는 행렬로, 곡률은 분석하기 위한 matrix이다. 수학적으로 접근하면 곡률을 의미하는 행렬의 eigen value(고유값)은 eigen vector의 크기를 얼마나 변화시키느냐 이므로 이 값이 클 경우  Quantization으로 인한 변화가 큰거라고 보는게 아닐까 생각된다.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c305153f-7ad5-4a3a-82fb-132269a7eccd"/>
+</p>
+
+위는 eigen value가 큰 민감한 벡터일수록 quantization 수행 시 weight가 많이 변해 loss의 변화가 크다는 것을 증명한 실험이다.
+
+- **group-wise quantization**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/847ccdaa-afe6-41f9-a032-3f50d2dd199d"/>
+</p>
+
+MHA에서는 각각 4개의 행렬을 직접 quantizing을 하는데, 이때 동일한 quantization range는 정확도를 크게 저하시킬 수 있다.
+
+따라서 각 하위 그룹이 자체적으로 Quantization range로 나누는 quantization grouping 방법을 제안한다.
+
+
+이 방법들을 통해 weights 13배 압축, activation 4배 감소, embedding 크기 4배 감소, 2.3% 성능 감소의 을 얻었다.<br>
+다만 하드웨어 지원 없이는 속도 향상에 어려움이 존재한다.
 
 
 ## 🔗 Reference
