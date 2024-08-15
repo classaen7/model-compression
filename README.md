@@ -8,8 +8,12 @@
 - [Network Quantization](https://github.com/classaen7/model-compression/tree/main/Quantization)
 - Network Compiling
 
-- Network Pruning
-- Knowledge Distillation
+- [Network Pruning](https://github.com/classaen7/model-compression/tree/main/Pruning)
+- [Knowledge Distillation](https://github.com/classaen7/model-compression/tree/main/Knowledge_Distillation)
+- [Weight Factorization & Weight Sharing](https://github.com/classaen7/model-compression/tree/main/Weight_Factorization%26Sharing)
+- Tools
+  - [TensorRT](https://github.com/classaen7/model-compression/tree/main/TensorRT)
+  - [DALI](https://github.com/classaen7/model-compression/tree/main/DALI)
 
 
 
